@@ -1,0 +1,49 @@
+version: 0.2
+
+env:
+  # variables:
+  #   a: "a"
+  #   b: "b"
+  parameter-store:
+    aws_access_key: /CodeBuild/aws_access_key
+    aws_secret_key: /CodeBuild/aws_secret_key
+    
+phases:
+  install:
+    commands:
+      - echo install
+      - apt-get install -y wget unzip
+      - wget https://releases.hashicorp.com/packer/1.4.0/packer_1.4.0_linux_amd64.zip
+      - unzip packer_1.4.0_linux_amd64.zip
+      - mv packer /usr/local/bin
+  pre_build:
+    commands:
+      - echo pre_build
+  build:
+    commands:
+      - echo build
+      - packer build -var aws_access_key=$aws_access_key -var aws_secret_key=$aws_secret_key packer.json
+  post_build:
+    commands:
+      - echo post_build
+# artifacts:
+#   files:
+#     - location
+#     - location
+#   name: artifact-name
+#   discard-paths: yes
+#   base-directory: location
+#   secondary-artifacts:
+#     artifactIdentifier:
+#       files:
+#         - location
+#         - location
+#       name: secondary-artifact-name
+#       discard-paths: yes
+#       base-directory: location
+#     artifactIdentifier:
+#       files:
+#         - location
+#         - location
+#       discard-paths: yes
+#       base-directory: location
