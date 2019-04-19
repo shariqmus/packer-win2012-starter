@@ -24,7 +24,10 @@
         "user_data_file": "./bootstrap_win.txt",
         "communicator": "winrm",
         "winrm_username": "Administrator",
-        "winrm_password": "SuperS3cr3t!"
+        "winrm_password": "SuperS3cr3t!",
+        "vpc_id": "vpc-059273a4ae8504bb5",
+        "subnet_id": "subnet-03ad7c59ba40d6e66",
+        "associate_public_ip_address": false
       }
     ],
     "provisioners": [
