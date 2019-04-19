@@ -1,9 +1,9 @@
 version: 0.2
 
 env:
-  # variables:
-  #   a: "a"
-  #   b: "b"
+  variables:
+    PACKER_LOG: 1
+    PACKER_LOG_PATH: "packerlog.txt"  
   parameter-store:
     aws_access_key: /CodeBuild/aws_access_key
     aws_secret_key: /CodeBuild/aws_secret_key
