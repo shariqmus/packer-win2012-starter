@@ -12,7 +12,7 @@ phases:
   install:
     commands:
       - echo install
-      - apt-get install -y wget unzip
+      - apt-get install -y wget unzip tree
       - wget https://releases.hashicorp.com/packer/1.4.0/packer_1.4.0_linux_amd64.zip
       - unzip packer_1.4.0_linux_amd64.zip
       - mv packer /usr/local/bin
@@ -26,6 +26,8 @@ phases:
   post_build:
     commands:
       - echo post_build
+      - tree .
+      - cat packerlog.txt
 # artifacts:
 #   files:
 #     - location
